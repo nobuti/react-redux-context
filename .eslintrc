@@ -22,5 +22,15 @@
     ],
     //change airbnb defaults
     "no-unused-vars": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["~", "./src"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
   }
 }
