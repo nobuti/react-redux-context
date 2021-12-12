@@ -4,16 +4,19 @@ import Layout from '~/components/Layout';
 import DarkMode from '~/components/DarkMode';
 import Settings from '~/components/Settings';
 
+import ThemeProvider from '~/context/theme/ThemeProvider';
 import SettingsProvider from '~/context/setting/SettingProvider';
 
 function App() {
   return (
-    <SettingsProvider>
-      <Layout>
-        <DarkMode />
-        <Settings />
-      </Layout>
-    </SettingsProvider>
+    <ThemeProvider>
+      <SettingsProvider>
+        <Layout>
+          <DarkMode />
+          <Settings />
+        </Layout>
+      </SettingsProvider>
+    </ThemeProvider>
   );
 }
 

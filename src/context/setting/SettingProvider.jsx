@@ -1,12 +1,9 @@
 import React, { createContext, useContext, useReducer } from 'react';
 
-import { THEMES } from '~/config';
-
 const SettingsContext = createContext(null);
 
 export const ACTIONS = {
   update: 'update',
-  theme: 'theme',
 };
 
 const reducer = (state, action) => {
@@ -15,12 +12,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         [action.payload.setting]: action.payload.value,
-      };
-
-    case ACTIONS.theme:
-      return {
-        ...state,
-        theme: state.theme === THEMES.light ? THEMES.dark : THEMES.light,
       };
 
     default:
@@ -32,7 +23,6 @@ const Provider = ({ children }) => {
     love: true,
     money: true,
     health: true,
-    theme: THEMES.light,
   });
 
   const value = {

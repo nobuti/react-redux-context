@@ -1,13 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { useSettings } from '~/context/setting/SettingProvider';
+import { useTheme } from '~/context/theme/ThemeProvider';
 import { THEMES } from '~/config';
 import styles from './styles.module.css';
 
 const Layout = ({ children }) => {
-  const { state } = useSettings();
-  const cssTheme = state.theme === THEMES.light ? styles.light : styles.dark;
+  const { theme } = useTheme();
+  const cssTheme = theme === THEMES.light ? styles.light : styles.dark;
   return <div className={classnames(styles.layout, cssTheme)}>{children}</div>;
 };
 
