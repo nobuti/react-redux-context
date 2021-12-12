@@ -1,26 +1,29 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
-import { updateTheme } from '~/store/theme/actions';
+import { useSettings, ACTIONS } from '~/context/setting/SettingProvider';
 import { THEMES } from '~/config';
 import DarkIcon from './DarkIcon';
 import LightIcon from './LightIcon';
 import styles from './styles.module.css';
 
 const DarkMode = () => {
-  const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.current);
-  const clickHandler = () => dispatch(updateTheme());
-  const cssTheme = theme === THEMES.light ? styles.light : styles.dark;
+  const { state, dispatch } = useSettings();
+  const cssTheme = state.theme === THEMES.light ? styles.light : styles.dark;
+  const toggle = () => {
+    dispatch({ type: ACTIONS.theme });
+  };
+
+  // eslint-disable-next-line no-console
+  console.log(`Theme switcher rendered`);
 
   return (
     <button
       type="button"
       className={classNames(styles.button, cssTheme)}
-      onClick={clickHandler}
+      onClick={toggle}
     >
-      {theme === THEMES.light ? <DarkIcon /> : <LightIcon />}
+      {state.theme === THEMES.light ? <DarkIcon /> : <LightIcon />}
     </button>
   );
 };

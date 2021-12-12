@@ -1,16 +1,18 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 import Toggle from '~/components/Toggle';
-import { updateSetting } from '~/store/settings/actions';
+import { useSettings, ACTIONS } from '~/context/setting/SettingProvider';
 
 import styles from './styles.module.css';
 
 const Setting = ({ id, name }) => {
-  const dispatch = useDispatch();
-  const checked = useSelector((state) => state.setting[id]);
+  const { state, dispatch } = useSettings();
+  const checked = state[id];
   const onChange = () =>
-    dispatch(updateSetting({ setting: id, value: !checked }));
+    dispatch({
+      type: ACTIONS.update,
+      payload: { setting: id, value: !checked },
+    });
 
   // eslint-disable-next-line no-console
   console.log(`Setting ${id} rendered`);
