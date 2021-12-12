@@ -1,13 +1,19 @@
 import React from 'react';
 
 import Toggle from '~/components/Toggle';
-import { useSettings, ACTIONS } from '~/context/setting/SettingProvider';
+import {
+  useSettings,
+  useDispatch,
+  ACTIONS,
+} from '~/context/setting/SettingProvider';
 
 import styles from './styles.module.css';
 
 const Setting = ({ id, name }) => {
-  const { state, dispatch } = useSettings();
-  const checked = state[id];
+  const settings = useSettings();
+  const dispatch = useDispatch();
+  const checked = settings[id];
+
   const onChange = () =>
     dispatch({
       type: ACTIONS.update,

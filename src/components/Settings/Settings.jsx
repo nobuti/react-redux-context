@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 const Settings = () => (
   <div className={styles.container}>
-    <h2 className={styles.header}>Life setttings</h2>
+    <h2 className={styles.header}>Life settings</h2>
     <ul className={styles.settings}>
       <li>
         <Setting id="money" name="Money" />

@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useMemo } from 'react';
 
 const SettingsContext = createContext(null);
+const DispatchContext = createContext(null);
 
 export const ACTIONS = {
   update: 'update',
@@ -25,18 +26,25 @@ const Provider = ({ children }) => {
     health: true,
   });
 
-  const value = {
-    state,
-    dispatch,
-  };
+  const value = useMemo(
+    () => ({
+      love: state.love,
+      money: state.money,
+      health: state.health,
+    }),
+    [state.love, state.health, state.money]
+  );
 
   return (
     <SettingsContext.Provider value={value}>
-      {children}
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
     </SettingsContext.Provider>
   );
 };
 
 export const useSettings = () => useContext(SettingsContext);
+export const useDispatch = () => useContext(DispatchContext);
 
 export default Provider;
