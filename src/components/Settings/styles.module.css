@@ -1,0 +1,26 @@
+.container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #fff;
+  padding: 2em;
+  flex: 1 1 100%;
+}
+
+.header {
+  font-size: 2.4em;
+  font-weight: 600;
+}
+
+.settings {
+  margin-top: 2em;
+}
+
+.settings li + li {
+  margin-top: 1em;
+}
+
+.subheader {
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 3em;
+}

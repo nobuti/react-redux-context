@@ -1,0 +1,22 @@
+.button {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+
+  position:fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.button svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.light {
+  color: #f7f7f7;
+}
+
+.dark {
+  color: #f7f7f7;
+}

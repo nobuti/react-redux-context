@@ -21,7 +21,8 @@
       }
     ],
     //change airbnb defaults
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "react/prop-types": 0
   },
   "settings": {
     "import/resolver": {

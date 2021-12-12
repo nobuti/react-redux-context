@@ -4,8 +4,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import reducers from '~/store';
-
-import styles from './styles.module.css';
+import Layout from '~/components/Layout';
+import DarkMode from '~/components/DarkMode';
+import Settings from '~/components/Settings';
 
 const createRootReducer = () =>
   combineReducers({
@@ -22,7 +23,10 @@ const store = createStore(
 function App() {
   return (
     <Provider store={store}>
-      <div className={styles.App}>Wadus</div>;
+      <Layout>
+        <DarkMode />
+        <Settings />
+      </Layout>
     </Provider>
   );
 }
