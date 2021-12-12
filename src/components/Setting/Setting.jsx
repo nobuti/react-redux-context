@@ -10,9 +10,8 @@ import {
 import styles from './styles.module.css';
 
 const Setting = ({ id, name }) => {
-  const settings = useSettings();
+  const checked = useSettings(id);
   const dispatch = useDispatch();
-  const checked = settings[id];
 
   const onChange = () =>
     dispatch({
